@@ -1,0 +1,3 @@
+Requirement:
+	python (recommend version 3.12) + needed library
+	conda: miniconda/anaconda
