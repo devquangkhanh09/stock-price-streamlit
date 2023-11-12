@@ -10,12 +10,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime
 from sklearn.preprocessing import MinMaxScaler
-from keras import Sequential
-from keras.layers import Dense, LSTM
+from tensorflow.python.keras.optimizer_v1 import Adam
+from tensorflow.python.keras import Sequential
+from tensorflow.python.keras.layers import Dense, LSTM
 from matplotlib.animation import FuncAnimation
 import math 
 from sklearn.metrics import mean_squared_error
-from tensorflow.keras.optimizers import Adam
 
 sns.set_style("whitegrid")
 plt.style.use("fivethirtyeight")
@@ -36,7 +36,7 @@ def local_css(file_name):
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 
-local_css("style/style.css")
+local_css("/Users/huynhtanloc/Documents/BKU/Data_warehouse_DSS/stock-price-streamlit/style/style.css")
 
 # ---- LOAD ASSETS ----
 
@@ -66,7 +66,7 @@ with st.container():
         st.write("[See our report >](https://drive.google.com/file/d/16_IbuXiqWthJYM--fNYwMRiOlqi7aI9m/view?usp=sharing)")
         st.write("[See our slide >](https://drive.google.com/file/d/1Fr4hF8aIY1f9V0pbFHw1MD2Ahw-Jt95R/view?usp=sharing)")
     with right_column:
-        st.image('image/3.jpg')
+        st.image('/Users/huynhtanloc/Documents/BKU/Data_warehouse_DSS/stock-price-streamlit/image/3.jpg')
 
 # ---- IMPORT DATA ----
 flag = False
