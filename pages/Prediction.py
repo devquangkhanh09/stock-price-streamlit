@@ -19,7 +19,7 @@ from sklearn.metrics import mean_squared_error
 sns.set_style("whitegrid")
 plt.style.use("fivethirtyeight")
 
-st.set_page_config(page_title="TimeSeriesForecasting", page_icon=":tada:", layout="wide")
+st.set_page_config(page_title="Prediction", page_icon=":tada:", layout="wide")
 
 
 def load_lottieurl(url):
@@ -34,7 +34,6 @@ def local_css(file_name):
     with open(file_name) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-
 local_css("./style/style.css")
 
 # ---- LOAD ASSETS ----
@@ -42,49 +41,27 @@ local_css("./style/style.css")
 
 # ---- HEADER SECTION ----
 with st.container():
-    st.subheader("Hi, we are Group 8 from Big Data Club:wave:")
-    st.title("Time Series Forecasting - Stock Prediction")
-    st.write(
-        "This product is used for Stock Prediction."
-    )
-    st.write("[See our poster >](https://drive.google.com/file/d/1rS9oSHcqHdxmL7maoLwdHriDLVE8TcyE/view?usp=sharing)")
-    
+    st.title("Stock price visualization & prediction")
 
-# ---- ABOUT PROJECT ----
+# ---- SELECT STOCK INDEX (IMPORT DATA) ----
+is_index_selected = False
+STOCK_INDICES = ("HNX", "HNX30", "VN30", "VN100", "VNIndex")
 with st.container():
     st.write("---")
-    st.header("About our project")
-    left_column, right_column = st.columns(2)
-    with left_column:
-        st.write("In the current era of rapid digital transformation, the rejuvenation in the investment world has been witnessed in many markets, today's young generation thanks to technology should have access to investment earlier, as well as there have innovative and modern changes in investment thinking. Securities is one of the emerging investment fields and attracts the attention of many investors because of its huge profit potential. However, this field also requires investors to have certain knowledge and understanding, as well as implicit many risks. ")
-        st.write("Therefore, stock market prediction can be of great help to investors in limiting risks, as well as helping them make the best investment decisions. Forecasting the stock market is particularly difficult by reason of the nonlinear, volatile, and complex nature of the market. Currently, stock forecasting models often fall into traditional linear models and models represented by Deep Learning. However, because data from the stock market is a time-series data with both linear and nonlinear parts, the single forecast results through forecasting models are often not so reliable.")
-        st.write("Time-Series Forecasting is an important area of ​​Machine Learning because there are many prediction problems involving components of time. However, Time-Series Forecasting is often overlooked because it is the components of time that make time series problems more difficult to deal with.")
-        st.write("##")
-        # st.write("Will be add soon"
-        # )
-        st.write("[See our report >](https://drive.google.com/file/d/16_IbuXiqWthJYM--fNYwMRiOlqi7aI9m/view?usp=sharing)")
-        st.write("[See our slide >](https://drive.google.com/file/d/1Fr4hF8aIY1f9V0pbFHw1MD2Ahw-Jt95R/view?usp=sharing)")
-    with right_column:
-        st.image('./image/3.jpg')
-
-# ---- IMPORT DATA ----
-flag = False
-with st.container():
-    st.write("---")
-    st.header("Import data:")
-    uploaded_file = st.file_uploader("Please import as CSV file")
-    if uploaded_file is not None:
-        st.write("Load data successful " + time.strftime("%H:%M:%S"))
-        flag = True
-        df = pd.read_csv(uploaded_file, parse_dates=['Date'], index_col='Date').filter(['Price'])
+    st.header("Stock index:")
+    selected_index = st.selectbox("Please select stock index", STOCK_INDICES, index=None, placeholder="Select index...")
+    if selected_index is not None:
+        df = pd.read_csv(f"./Data/{selected_index}.csv", parse_dates=['Date'], index_col='Date').filter(['Price'])
         df = df.iloc[::-1]
+        st.write("Load data successful " + time.strftime("%H:%M:%S"))
+        is_index_selected = True
 
 
 # ---- VISUALIZE DATA ----
 with st.container():
     st.write("---")
     st.header("Data visualization")
-    if flag == True:
+    if is_index_selected == True:
         if st.button("Click here to view data"):
             st.write(df) 
         if st.button("Click here to visualize your data"):
@@ -101,8 +78,11 @@ with st.container():
 with st.container():
     st.write("---")
     st.header("Predict price")
-    if flag == True:
+    if is_index_selected == True:
         if st.button("Click here to start model"):
+            placeholder = st.empty()
+            placeholder.write("Processing (Data pre-processing)...")
+
             # ---- DATA PROCESSING ---- 
             dataset = df.values
             training_data_len = int(np.ceil(len(dataset) * .9))
@@ -128,28 +108,25 @@ with st.container():
             model.compile(optimizer=Adam(learning_rate=0.0001), loss='mean_squared_error')
 
             # ---- TRAIN MODEL ---- 
+            placeholder.write("Processing (LSTM)...")
             model.fit(x_train, y_train, batch_size=2, epochs=2, shuffle=False)
             test_data = scaled_data[training_data_len - 5: , :]
             
             # ---- EVALUATE ---- 
             # ---- LSTM Model
-            st.write("---")
-            st.subheader("Prediction by LSTM Model:")
             test_data = scaled_data[training_data_len - 5: , :]
-
             x_test = []
             y_test = dataset[training_data_len:, :]
             for i in range(5, len(test_data)):
                 x_test.append(test_data[i-5:i, 0])
-                
+                    
             x_test = np.array(x_test)
-
             x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1 ))
 
             predictions = model.predict(x_test)
             predictions = scaler.inverse_transform(predictions)
             rmse = math.sqrt(mean_squared_error(y_test, predictions))
-            st.write('Test RMSE: %.3f' % rmse)
+
             train = df[:training_data_len]
             valid = df[training_data_len:]
             valid['Predictions'] = predictions
@@ -160,9 +137,15 @@ with st.container():
             plt.plot(train['Price'])
             plt.plot(valid[['Price', 'Predictions']])
             plt.legend(['Train', 'Val', 'Predictions'], loc='lower right')
+
+            st.write("---")
+            st.subheader("Prediction by LSTM Model:")    
+            st.write('Test RMSE: %.3f' % rmse)
             st.pyplot(lstm_fig)
 
             # ---- ARIMA Model
+            placeholder.write("Processing (ARIMA)...")
+
             from statsmodels.tsa.arima.model import ARIMA
             X = df.values
             train, test = X[:training_data_len], X[training_data_len:]
@@ -177,10 +160,9 @@ with st.container():
                 predictions.append(yhat)
                 obs = test[t]
                 history.append(obs)
-            st.write("---")
-            st.subheader("Prediction by ARIMA Model:")
+            
             rmse = math.sqrt(mean_squared_error(test, predictions))
-            st.write('Test RMSE: %.3f' % rmse)
+            
             df_valid = df[training_data_len:]
             df_valid['Predictions'] = predictions
             arima_fig = plt.figure(figsize=(12,6))
@@ -190,25 +172,10 @@ with st.container():
             plt.plot(df['Price'])
             plt.plot(df_valid[['Price', 'Predictions']])
             plt.legend(['Val', 'Predictions'], loc='lower right')
+
+            st.write("---")
+            st.subheader("Prediction by ARIMA Model:")
+            st.write('Test RMSE: %.3f' % rmse)
             st.pyplot(arima_fig)
 
-# ---- CONTACT ----
-with st.container():
-    st.write("---")
-    st.header("Give us your feedback!")
-    st.write("##")
-
-    contact_form = """
-    <form action="https://formsubmit.co/phanphuocminh2002@gmail.com" method="POST">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" placeholder="Your message here" required></textarea>
-        <button type="submit">Send</button>
-    </form>
-    """
-    left_column, right_column = st.columns(2)
-    with left_column:
-        st.markdown(contact_form, unsafe_allow_html=True)
-    with right_column:
-        st.empty()
+            placeholder.empty()
