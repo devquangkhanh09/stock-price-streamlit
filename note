@@ -1,4 +1,4 @@
-use db:
+user bd, password: bd
 
 port: 5433
 db: historical
