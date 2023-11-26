@@ -15,6 +15,7 @@ from keras.layers import Dense, LSTM
 from matplotlib.animation import FuncAnimation
 import math 
 from sklearn.metrics import mean_squared_error
+import plotly.express as px
 
 import sys
 # setting path
@@ -59,23 +60,31 @@ with st.container():
     selected_index = st.selectbox("Please select stock index", list(STOCK_INDICES.keys()), index=None, placeholder="Select index...")
     if selected_index is not None:
         df = postgresql_service.get_stock_data_as_df(selected_index)
-        df = df.filter(['Close'])
+        df = df.filter(['Date', 'Close'])
         st.write("Load data successful " + time.strftime("%H:%M:%S"))
         is_index_selected = True
 
+
+# # ---- VISUALIZE DATA ----
+# with st.container():
+#     st.write("---")
+#     st.header("Data visualization")
+#     if is_index_selected == True:
+#         fig = plt.figure(figsize=(12,6))
+#         plt.title('Close price History')
+#         plt.plot(df['Close'])
+#         plt.xlabel('Date', fontsize=18)
+#         plt.ylabel('Close price $', fontsize=18)
+#         st.pyplot(fig)
 
 # ---- VISUALIZE DATA ----
 with st.container():
     st.write("---")
     st.header("Data visualization")
     if is_index_selected == True:
-        fig = plt.figure(figsize=(12,6))
-        plt.title('Close price History')
-        plt.plot(df['Close'])
-        plt.xlabel('Date', fontsize=18)
-        plt.ylabel('Close price $', fontsize=18)
-        st.pyplot(fig)
-        
+        fig = px.line(df, x="Date", y="Close", title='Close price History')
+        st.plotly_chart(fig)
+
         
 
 # ---- MODEL PREDICTION ----
