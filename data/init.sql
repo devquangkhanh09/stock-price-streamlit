@@ -1,115 +1,8 @@
---
--- PostgreSQL database cluster dump
---
+CREATE USER bd PASSWORD 'bd';
+ALTER USER bd WITH SUPERUSER;
 
-SET default_transaction_read_only = off;
-
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-
---
--- Roles
---
-
-CREATE ROLE bd;
-ALTER ROLE bd WITH SUPERUSER INHERIT NOCREATEROLE NOCREATEDB LOGIN NOREPLICATION NOBYPASSRLS PASSWORD 'SCRAM-SHA-256$4096:IA1KDfz19bnAQmJ0m1fB9g==$22ppe75vCakLl1qzdNcLg5+KeXPWMukYZcfrYYtYpwg=:cel7Mwb5IO/Q8UzhDoBLr+m8xA28Ki1SnWjrz8AyZvo=';
-CREATE ROLE postgres;
-ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS;
-
---
--- User Configurations
---
-
-
-
-
-
-
-
-
---
--- Databases
---
-
---
--- Database "template1" dump
---
-
-\connect template1
-
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
--- Dumped by pg_dump version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- PostgreSQL database dump complete
---
-
---
--- Database "historical" dump
---
-
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
--- Dumped by pg_dump version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- Name: historical; Type: DATABASE; Schema: -; Owner: bd
---
-
-CREATE DATABASE historical WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en_US.UTF-8';
-
-
-ALTER DATABASE historical OWNER TO bd;
-
+CREATE DATABASE historical WITH OWNER bd;
 \connect historical
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
-SET default_tablespace = '';
-
-SET default_table_access_method = heap;
-
---
--- Name: hnx30; Type: TABLE; Schema: public; Owner: bd
---
 
 CREATE TABLE public.hnx30 (
     index bigint,
@@ -123,10 +16,6 @@ CREATE TABLE public.hnx30 (
 
 ALTER TABLE public.hnx30 OWNER TO bd;
 
---
--- Name: symbols; Type: TABLE; Schema: public; Owner: bd
---
-
 CREATE TABLE public.symbols (
     symbol character varying(5) NOT NULL,
     tb character varying(5)
@@ -134,10 +23,6 @@ CREATE TABLE public.symbols (
 
 
 ALTER TABLE public.symbols OWNER TO bd;
-
---
--- Name: vn30; Type: TABLE; Schema: public; Owner: bd
---
 
 CREATE TABLE public.vn30 (
     index bigint,
