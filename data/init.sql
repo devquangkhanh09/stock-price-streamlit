@@ -1,5 +1,89 @@
-CREATE USER bd PASSWORD 'bd';
-ALTER USER bd WITH SUPERUSER;
+--
+-- PostgreSQL database cluster dump
+--
+
+SET default_transaction_read_only = off;
+
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+
+--
+-- Roles
+--
+
+CREATE ROLE bd;
+ALTER ROLE bd WITH SUPERUSER INHERIT NOCREATEROLE NOCREATEDB LOGIN NOREPLICATION NOBYPASSRLS PASSWORD 'SCRAM-SHA-256$4096:IA1KDfz19bnAQmJ0m1fB9g==$22ppe75vCakLl1qzdNcLg5+KeXPWMukYZcfrYYtYpwg=:cel7Mwb5IO/Q8UzhDoBLr+m8xA28Ki1SnWjrz8AyZvo=';
+CREATE ROLE postgres;
+ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS;
+
+--
+-- User Configurations
+--
+
+
+
+
+
+
+
+
+--
+-- Databases
+--
+
+--
+-- Database "template1" dump
+--
+
+\connect template1
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
+-- Dumped by pg_dump version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- PostgreSQL database dump complete
+--
+
+--
+-- Database "historical" dump
+--
+
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
+-- Dumped by pg_dump version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: historical; Type: DATABASE; Schema: -; Owner: bd
+--
 
 CREATE DATABASE historical WITH OWNER bd;
 \connect historical
@@ -5086,96 +5170,19 @@ ALTER TABLE public.symbols OWNER TO bd;
 --
 
 COPY public.symbols (symbol) FROM stdin;
-A32
-AAS
-AAV
-ABB
-ABC
-ABI
-ABW
-ACE
-ACM
-ACS
-ACV
-ADC
-AFX
-AG1
-AGE
-AGF
-AGP
-AGX
-AIC
-ALT
-ALV
-AMC
-AMD
-AME
-AMP
-AMS
-AMV
-ANT
-APF
-API
-APL
-APP
-APS
-APT
-ARM
-ART
-ASA
-ATA
-ATB
-ATG
-ATS
-AVC
-AVF
-B82
-BAB
-BAL
-BAX
-BBH
-BBM
-BBS
-BBT
-BCA
-BCB
-BCC
-BCF
-BCP
-BCV
-BDB
-BDG
-BDT
-BDW
-BED
-BEL
-BGW
-BHA
-BHC
-BHG
-BHI
-BHK
-BHP
-BIG
-BII
-BIO
-BKC
-BLF
-BLI
-BLN
-BLT
-BLW
-BMD
-BMF
-BMG
-BMJ
-BMN
-BMS
-BMV
-BNA
+DHT
+HAT
 \.
 
 ALTER TABLE ONLY public.symbols
     ADD CONSTRAINT symbols_pkey PRIMARY KEY (symbol);
 
+
+--
+-- PostgreSQL database dump complete
+--
+
+--
+-- PostgreSQL database cluster dump complete
+--
 

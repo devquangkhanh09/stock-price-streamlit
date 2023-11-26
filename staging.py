@@ -51,21 +51,20 @@ def batch_process(df, id):
             .withColumn("year", date_format(col("timestamp"), "yyyy")) \
             .withColumn("month", date_format(col("timestamp"), "MM")) \
             .withColumn("day", date_format(col("timestamp"), "dd")) \
-            .withColumn("hour", date_format(col("timestamp"), "HH")) \
             .drop("timestamp") \
             .write \
-            .option('checkpointLocation',"/delta/stock/_checkpoints/")\
+            .option('checkpointLocation',"/delta/stock2/_checkpoints/")\
             .option("mergeSchema", "true") \
             .mode("append") \
             .format("delta") \
             .partitionBy("symbol","year", "month", "day") \
-            .save("/delta/stock")
+            .save("/delta/stock2")
 
 df = spark_session\
         .readStream\
         .format("kafka")\
         .option("minPartitions", 1) \
-        .option("startingOffsets", "earliest") \
+        .option("startingOffsets", "latest") \
         .option("kafka.bootstrap.servers", "localhost:9092")\
         .option("failOnDataLoss", False)\
         .option("subscribe", "stock")\
