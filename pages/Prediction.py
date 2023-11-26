@@ -16,11 +16,18 @@ from matplotlib.animation import FuncAnimation
 import math 
 from sklearn.metrics import mean_squared_error
 
+import sys
+# setting path
+sys.path.append('../services')
+
+from services.postgresql import PostgresqlService, STOCK_INDICES
+
 sns.set_style("whitegrid")
 plt.style.use("fivethirtyeight")
 
 st.set_page_config(page_title="Prediction", page_icon=":tada:", layout="wide")
 
+postgresql_service = PostgresqlService()
 
 def load_lottieurl(url):
     r = requests.get(url)
@@ -45,14 +52,14 @@ with st.container():
 
 # ---- SELECT STOCK INDEX (IMPORT DATA) ----
 is_index_selected = False
-STOCK_INDICES = ("HNX", "HNX30", "VN30", "VN100", "VNIndex")
+
 with st.container():
     st.write("---")
     st.header("Stock index:")
-    selected_index = st.selectbox("Please select stock index", STOCK_INDICES, index=None, placeholder="Select index...")
+    selected_index = st.selectbox("Please select stock index", list(STOCK_INDICES.keys()), index=None, placeholder="Select index...")
     if selected_index is not None:
-        df = pd.read_csv(f"./Data/{selected_index}.csv", parse_dates=['Date'], index_col='Date').filter(['Price'])
-        df = df.iloc[::-1]
+        df = postgresql_service.get_stock_data_as_df(selected_index)
+        df = df.filter(['Close'])
         st.write("Load data successful " + time.strftime("%H:%M:%S"))
         is_index_selected = True
 
@@ -62,15 +69,12 @@ with st.container():
     st.write("---")
     st.header("Data visualization")
     if is_index_selected == True:
-        if st.button("Click here to view data"):
-            st.write(df) 
-        if st.button("Click here to visualize your data"):
-            fig = plt.figure(figsize=(12,6))
-            plt.title('Price History')
-            plt.plot(df['Price'])
-            plt.xlabel('Date', fontsize=18)
-            plt.ylabel('Price x1000 VND', fontsize=18)
-            st.pyplot(fig)
+        fig = plt.figure(figsize=(12,6))
+        plt.title('Close price History')
+        plt.plot(df['Close'])
+        plt.xlabel('Date', fontsize=18)
+        plt.ylabel('Close price $', fontsize=18)
+        st.pyplot(fig)
         
         
 
@@ -133,9 +137,9 @@ with st.container():
             lstm_fig = plt.figure(figsize=(12,6))
             plt.title('LSTM Model')
             plt.xlabel('Date', fontsize=18)
-            plt.ylabel('Price x1000 VND', fontsize=18)
-            plt.plot(train['Price'])
-            plt.plot(valid[['Price', 'Predictions']])
+            plt.ylabel('Price $', fontsize=18)
+            plt.plot(train['Close'])
+            plt.plot(valid[['Close', 'Predictions']])
             plt.legend(['Train', 'Val', 'Predictions'], loc='lower right')
 
             st.write("---")
@@ -168,9 +172,9 @@ with st.container():
             arima_fig = plt.figure(figsize=(12,6))
             plt.title('ARIMA Model')
             plt.xlabel('Date', fontsize=18)
-            plt.ylabel('Price x1000 VND', fontsize=18)
-            plt.plot(df['Price'])
-            plt.plot(df_valid[['Price', 'Predictions']])
+            plt.ylabel('Price $', fontsize=18)
+            plt.plot(df['Close'])
+            plt.plot(df_valid[['Close', 'Predictions']])
             plt.legend(['Val', 'Predictions'], loc='lower right')
 
             st.write("---")
