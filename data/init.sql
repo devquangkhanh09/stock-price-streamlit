@@ -5069,89 +5069,10 @@ CREATE INDEX ix_hnx30_index ON public.hnx30 USING btree (index);
 CREATE INDEX ix_vn30_index ON public.vn30 USING btree (index);
 
 
---
--- PostgreSQL database dump complete
---
-
---
--- Database "postgres" dump
---
-
-\connect postgres
-
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
--- Dumped by pg_dump version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- PostgreSQL database dump complete
---
-
---
--- Database "stock" dump
---
-
---
--- PostgreSQL database dump
---
-
--- Dumped from database version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
--- Dumped by pg_dump version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
---
--- Name: stock; Type: DATABASE; Schema: -; Owner: bd
---
-
-CREATE DATABASE stock WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en_US.UTF-8';
-
-
-ALTER DATABASE stock OWNER TO bd;
+CREATE DATABASE stock WITH OWNER bd;
 
 \connect stock
 
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
-SET default_tablespace = '';
-
-SET default_table_access_method = heap;
-
---
--- Name: symbols; Type: TABLE; Schema: public; Owner: bd
---
 
 CREATE TABLE public.symbols (
     symbol character varying(3) NOT NULL
@@ -5254,20 +5175,8 @@ BMV
 BNA
 \.
 
-
---
--- Name: symbols symbols_pkey; Type: CONSTRAINT; Schema: public; Owner: bd
---
-
 ALTER TABLE ONLY public.symbols
     ADD CONSTRAINT symbols_pkey PRIMARY KEY (symbol);
 
 
---
--- PostgreSQL database dump complete
---
-
---
--- PostgreSQL database cluster dump complete
---
 
