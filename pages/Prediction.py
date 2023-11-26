@@ -16,6 +16,7 @@ from matplotlib.animation import FuncAnimation
 import math 
 from sklearn.metrics import mean_squared_error
 import plotly.express as px
+import plotly.graph_objects as go
 
 import sys
 # setting path
@@ -89,18 +90,26 @@ with st.container():
 
 # ---- MODEL PREDICTION ----
 with st.container():
+    
     st.write("---")
     st.header("Predict price")
     if is_index_selected == True:
         if st.button("Click here to start model"):
             placeholder = st.empty()
             placeholder.write("Processing (Data pre-processing)...")
-
+            print(df)
+            df[:] = df[::-1]
+            print(df)
             # ---- DATA PROCESSING ---- 
-            dataset = df.values
+            # dataset = df.values
+            dataset = df["Close"].values
+            dataset = np.reshape(dataset, (-1, 1))
+
             training_data_len = int(np.ceil(len(dataset) * .9))
             scaler = MinMaxScaler(feature_range=(0,1))
             scaled_data = scaler.fit_transform(dataset)
+
+        
             train_data = scaled_data[0:int(training_data_len), :]
             x_train = []
             y_train = []
@@ -143,24 +152,34 @@ with st.container():
             train = df[:training_data_len]
             valid = df[training_data_len:]
             valid['Predictions'] = predictions
-            lstm_fig = plt.figure(figsize=(12,6))
-            plt.title('LSTM Model')
-            plt.xlabel('Date', fontsize=18)
-            plt.ylabel('Price $', fontsize=18)
-            plt.plot(train['Close'])
-            plt.plot(valid[['Close', 'Predictions']])
-            plt.legend(['Train', 'Val', 'Predictions'], loc='lower right')
+            
+            lstm_trace = go.Scatter(x=train['Date'], y=train['Close'], mode='lines', name='Train')
+            lstm_trace2 = go.Scatter(x=valid['Date'], y=valid['Close'], mode='lines', name='Val')
+            lstm_trace3 = go.Scatter(x=valid['Date'], y=valid['Predictions'], mode='lines', name='Predictions', line=dict(color='red'))
+            lstm_data = [lstm_trace, lstm_trace2, lstm_trace3]
+
+            lstm_layout = go.Layout(title='LSTM Model', xaxis=dict(title='Date'), yaxis=dict(title='Price $'))
+            lstm_fig = go.Figure(data=lstm_data, layout=lstm_layout)
+            
+            # lstm_fig = plt.figure(figsize=(12,6))
+            # plt.title('LSTM Model')
+            # plt.xlabel('Date', fontsize=18)
+            # plt.ylabel('Price $', fontsize=18)
+            # plt.plot(train['Close'])
+            # plt.plot(valid[['Close', 'Predictions']])
+            # plt.legend(['Train', 'Val', 'Predictions'], loc='lower right')
 
             st.write("---")
             st.subheader("Prediction by LSTM Model:")    
             st.write('Test RMSE: %.3f' % rmse)
-            st.pyplot(lstm_fig)
+            # st.pyplot(lstm_fig)
+            st.plotly_chart(lstm_fig)
 
             # ---- ARIMA Model
             placeholder.write("Processing (ARIMA)...")
 
             from statsmodels.tsa.arima.model import ARIMA
-            X = df.values
+            X = df["Close"].values
             train, test = X[:training_data_len], X[training_data_len:]
             history = [x for x in train]
             predictions = list()
@@ -178,17 +197,27 @@ with st.container():
             
             df_valid = df[training_data_len:]
             df_valid['Predictions'] = predictions
-            arima_fig = plt.figure(figsize=(12,6))
-            plt.title('ARIMA Model')
-            plt.xlabel('Date', fontsize=18)
-            plt.ylabel('Price $', fontsize=18)
-            plt.plot(df['Close'])
-            plt.plot(df_valid[['Close', 'Predictions']])
-            plt.legend(['Val', 'Predictions'], loc='lower right')
+
+
+            arima_trace = go.Scatter(x=df['Date'], y=df['Close'], mode='lines', name='Val')
+            arima_trace2 = go.Scatter(x=df_valid['Date'], y=df_valid['Predictions'], mode='lines', name='Predictions', line=dict(color='red'))
+            arima_data = [arima_trace, arima_trace2]
+
+            arima_layout = go.Layout(title='ARIMA Model', xaxis=dict(title='Date'), yaxis=dict(title='Price $'))
+            arima_fig = go.Figure(data=arima_data, layout=arima_layout)
+            
+            # arima_fig = plt.figure(figsize=(12,6))
+            # plt.title('ARIMA Model')
+            # plt.xlabel('Date', fontsize=18)
+            # plt.ylabel('Price $', fontsize=18)
+            # plt.plot(df['Close'])
+            # plt.plot(df_valid[['Close', 'Predictions']])
+            # plt.legend(['Val', 'Predictions'], loc='lower right')
 
             st.write("---")
             st.subheader("Prediction by ARIMA Model:")
             st.write('Test RMSE: %.3f' % rmse)
-            st.pyplot(arima_fig)
+            # st.pyplot(arima_fig)
+            st.plotly_chart(arima_fig)
 
             placeholder.empty()
