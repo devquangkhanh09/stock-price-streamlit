@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 import numpy as np
 import plotly.graph_objects as go
+from datetime import date
 import sys
 # setting path
 sys.path.append('../services')
@@ -23,9 +24,27 @@ df = postgresql_service.get_stock_data_as_df(stock_index)
 start_date = st.date_input("Start Date", min(df['Date']))
 end_date = st.date_input("End Date", max(df['Date']))
 
+filter_type = st.radio(
+    "How do you want to filter data?",
+    ["Date range (start date & end date)", "Last week", "Last month", "Last year", "Last 5 years"])
+
 df["Date"] = pd.to_datetime(df["Date"]).dt.date
 
 # Filter the dataframe based on the selected date range
+if filter_type != "Date range (start date & end date)":
+    end_date = date.today()
+    if filter_type == "Last week":
+        start_date = end_date - pd.DateOffset(weeks=1)
+    elif filter_type == "Last month":
+        start_date = end_date - pd.DateOffset(months=1)
+    elif filter_type == "Last year":
+        start_date = end_date - pd.DateOffset(years=1)
+    elif filter_type == "Last 5 years":
+        start_date = end_date - pd.DateOffset(years=5)
+    
+    end_date = pd.to_datetime(end_date).date()
+    start_date = pd.to_datetime(start_date).date()
+
 filtered_df = df[(df['Date'] >= start_date) & (df['Date'] <= end_date)]
 
 # Display the filtered dataframe
