@@ -42,7 +42,7 @@ local_css("./style/style.css")
 
 # ---- HEADER SECTION ----
 with st.container():
-    st.subheader("Hi, we are Group 8 from Big Data Club:wave:")
+    st.subheader("Hi, we are Group 5 :wave:")
     st.title("Time Series Forecasting - Stock Prediction")
     st.write(
         "This product is used for Stock Prediction."
@@ -67,130 +67,6 @@ with st.container():
     with right_column:
         st.image('./image/3.jpg')
 
-# ---- IMPORT DATA ----
-flag = False
-with st.container():
-    st.write("---")
-    st.header("Import data:")
-    uploaded_file = st.file_uploader("Please import as CSV file")
-    if uploaded_file is not None:
-        st.write("Load data successful " + time.strftime("%H:%M:%S"))
-        flag = True
-        df = pd.read_csv(uploaded_file, parse_dates=['Date'], index_col='Date').filter(['Price'])
-        df = df.iloc[::-1]
-
-
-# ---- VISUALIZE DATA ----
-with st.container():
-    st.write("---")
-    st.header("Data visualization")
-    if flag == True:
-        if st.button("Click here to view data"):
-            st.write(df) 
-        if st.button("Click here to visualize your data"):
-            fig = plt.figure(figsize=(12,6))
-            plt.title('Price History')
-            plt.plot(df['Price'])
-            plt.xlabel('Date', fontsize=18)
-            plt.ylabel('Price x1000 VND', fontsize=18)
-            st.pyplot(fig)
-        
-        
-
-# ---- MODEL PREDICTION ----
-with st.container():
-    st.write("---")
-    st.header("Predict price")
-    if flag == True:
-        if st.button("Click here to start model"):
-            # ---- DATA PROCESSING ---- 
-            dataset = df.values
-            training_data_len = int(np.ceil(len(dataset) * .9))
-            scaler = MinMaxScaler(feature_range=(0,1))
-            scaled_data = scaler.fit_transform(dataset)
-            train_data = scaled_data[0:int(training_data_len), :]
-            x_train = []
-            y_train = []
-
-            for i in range(5, len(train_data)):
-                x_train.append(train_data[i-5:i, 0])
-                y_train.append(train_data[i, 0])
-
-            x_train, y_train = np.array(x_train), np.array(y_train)
-            x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
-
-            # ---- BUILD MODEL ---- 
-            model = Sequential()
-            model.add(LSTM(256, return_sequences=True, input_shape= (x_train.shape[1], 1)))
-            model.add(LSTM(128, input_shape= (x_train.shape[1], 1)))
-            model.add(Dense(8))
-            model.add(Dense(1))
-            model.compile(optimizer=Adam(learning_rate=0.0001), loss='mean_squared_error')
-
-            # ---- TRAIN MODEL ---- 
-            model.fit(x_train, y_train, batch_size=2, epochs=2, shuffle=False)
-            test_data = scaled_data[training_data_len - 5: , :]
-            
-            # ---- EVALUATE ---- 
-            # ---- LSTM Model
-            st.write("---")
-            st.subheader("Prediction by LSTM Model:")
-            test_data = scaled_data[training_data_len - 5: , :]
-
-            x_test = []
-            y_test = dataset[training_data_len:, :]
-            for i in range(5, len(test_data)):
-                x_test.append(test_data[i-5:i, 0])
-                
-            x_test = np.array(x_test)
-
-            x_test = np.reshape(x_test, (x_test.shape[0], x_test.shape[1], 1 ))
-
-            predictions = model.predict(x_test)
-            predictions = scaler.inverse_transform(predictions)
-            rmse = math.sqrt(mean_squared_error(y_test, predictions))
-            st.write('Test RMSE: %.3f' % rmse)
-            train = df[:training_data_len]
-            valid = df[training_data_len:]
-            valid['Predictions'] = predictions
-            lstm_fig = plt.figure(figsize=(12,6))
-            plt.title('LSTM Model')
-            plt.xlabel('Date', fontsize=18)
-            plt.ylabel('Price x1000 VND', fontsize=18)
-            plt.plot(train['Price'])
-            plt.plot(valid[['Price', 'Predictions']])
-            plt.legend(['Train', 'Val', 'Predictions'], loc='lower right')
-            st.pyplot(lstm_fig)
-
-            # ---- ARIMA Model
-            from statsmodels.tsa.arima.model import ARIMA
-            X = df.values
-            train, test = X[:training_data_len], X[training_data_len:]
-            history = [x for x in train]
-            predictions = list()
-
-            for t in range(len(test)):
-                model = ARIMA(history, order=(5,1,0))
-                model_fit = model.fit()
-                output = model_fit.forecast()
-                yhat = output[0]
-                predictions.append(yhat)
-                obs = test[t]
-                history.append(obs)
-            st.write("---")
-            st.subheader("Prediction by ARIMA Model:")
-            rmse = math.sqrt(mean_squared_error(test, predictions))
-            st.write('Test RMSE: %.3f' % rmse)
-            df_valid = df[training_data_len:]
-            df_valid['Predictions'] = predictions
-            arima_fig = plt.figure(figsize=(12,6))
-            plt.title('ARIMA Model')
-            plt.xlabel('Date', fontsize=18)
-            plt.ylabel('Price x1000 VND', fontsize=18)
-            plt.plot(df['Price'])
-            plt.plot(df_valid[['Price', 'Predictions']])
-            plt.legend(['Val', 'Predictions'], loc='lower right')
-            st.pyplot(arima_fig)
 
 # ---- CONTACT ----
 with st.container():

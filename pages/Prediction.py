@@ -154,7 +154,7 @@ with st.container():
             valid['Predictions'] = predictions
             
             lstm_trace = go.Scatter(x=train['Date'], y=train['Close'], mode='lines', name='Train')
-            # lstm_trace2 = go.Scatter(x=valid['Date'], y=valid['Close'], mode='lines', name='Val')
+            lstm_trace2 = go.Scatter(x=valid['Date'], y=valid['Close'], mode='lines', name='Val')
             lstm_trace3 = go.Scatter(x=valid['Date'], y=valid['Predictions'], mode='lines', name='Predictions', line=dict(color='red'))
             lstm_data = [lstm_trace, lstm_trace2, lstm_trace3]
 
@@ -173,7 +173,14 @@ with st.container():
             st.subheader("Prediction by LSTM Model:")    
             st.write('Test RMSE: %.3f' % rmse)
             # st.pyplot(lstm_fig)
+            # predict the future
+            st.write("Stock price prediction for tomorrow: ")
+            st.write(valid['Predictions'].iloc[-1])
             st.plotly_chart(lstm_fig)
+
+
+
+
 
             # ---- ARIMA Model
             placeholder.write("Processing (ARIMA)...")
@@ -200,8 +207,10 @@ with st.container():
 
 
             arima_trace = go.Scatter(x=df['Date'], y=df['Close'], mode='lines', name='Val')
-            arima_trace2 = go.Scatter(x=df_valid['Date'], y=df_valid['Predictions'], mode='lines', name='Predictions', line=dict(color='red'))
-            arima_data = [arima_trace, arima_trace2]
+            arima_trace2 = go.Scatter(x=df_valid['Date'], y=df_valid['Close'], mode='lines', name='Validate')
+            arima_trace3 = go.Scatter(x=df_valid['Date'], y=df_valid['Predictions'], mode='lines', name='Predictions', line=dict(color='red'))
+
+            arima_data = [arima_trace, arima_trace2, arima_trace3]
 
             arima_layout = go.Layout(title='ARIMA Model', xaxis=dict(title='Date'), yaxis=dict(title='Price $'))
             arima_fig = go.Figure(data=arima_data, layout=arima_layout)
@@ -217,7 +226,12 @@ with st.container():
             st.write("---")
             st.subheader("Prediction by ARIMA Model:")
             st.write('Test RMSE: %.3f' % rmse)
+            # predict the future
+            st.write("Stock price prediction for tomorrow: ")
+            st.write(df_valid['Predictions'].iloc[-1])
+            
             # st.pyplot(arima_fig)
+
             st.plotly_chart(arima_fig)
 
             placeholder.empty()
