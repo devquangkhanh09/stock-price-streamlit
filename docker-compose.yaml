@@ -52,6 +52,7 @@ services:
     volumes:
       - ./data/:/docker-entrypoint-initdb.d/
       # - ./postgres_data:/var/lib/postgresql/data
+    # command: "psql -U postgres -h localhost -p 5432 < dumpall_clean.sql"
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_HOST_AUTH_METHOD=trust
