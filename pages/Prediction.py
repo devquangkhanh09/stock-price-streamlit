@@ -154,7 +154,7 @@ with st.container():
             valid['Predictions'] = predictions
             
             lstm_trace = go.Scatter(x=train['Date'], y=train['Close'], mode='lines', name='Train')
-            lstm_trace2 = go.Scatter(x=valid['Date'], y=valid['Close'], mode='lines', name='Val')
+            # lstm_trace2 = go.Scatter(x=valid['Date'], y=valid['Close'], mode='lines', name='Val')
             lstm_trace3 = go.Scatter(x=valid['Date'], y=valid['Predictions'], mode='lines', name='Predictions', line=dict(color='red'))
             lstm_data = [lstm_trace, lstm_trace2, lstm_trace3]
 
