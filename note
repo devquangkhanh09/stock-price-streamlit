@@ -1,0 +1,6 @@
+user bd, password: bd
+
+port: 5433
+db: historical
+all suport stock index in table symbols
+data in table correspond with name of stock

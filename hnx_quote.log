@@ -1,0 +1,256 @@
+2023-11-27 10:25:09 | 140618209923072 | INFO     ]> Fetch data from code LIS and key ABC
+2023-11-27 10:25:16 | 140618209923072 | INFO     ]> Fetch data from code LIS and key DEF
+2023-11-27 10:25:18 | 140618209923072 | INFO     ]> Fetch data from code LIS and key GHI
+2023-11-27 10:25:21 | 140618209923072 | INFO     ]> Fetch data from code LIS and key JKL
+2023-11-27 10:25:24 | 140618209923072 | INFO     ]> Fetch data from code LIS and key MNO
+2023-11-27 10:25:25 | 140618209923072 | INFO     ]> Fetch data from code LIS and key PQR
+2023-11-27 10:25:29 | 140618209923072 | INFO     ]> Fetch data from code LIS and key STUV
+2023-11-27 10:25:35 | 140618209923072 | INFO     ]> Fetch data from code LIS and key WXYZ
+2023-11-27 10:25:38 | 140618209923072 | INFO     ]> Fetch data from code UPC and key ABC
+2023-11-27 10:25:50 | 140618209923072 | INFO     ]> Fetch data from code UPC and key DEF
+2023-11-27 10:25:56 | 140618209923072 | INFO     ]> Fetch data from code UPC and key GHI
+2023-11-27 10:26:02 | 140618209923072 | INFO     ]> Fetch data from code UPC and key JKL
+2023-11-27 10:26:05 | 140618209923072 | INFO     ]> Fetch data from code UPC and key MNO
+2023-11-27 10:26:18 | 140618209923072 | INFO     ]> Fetch data from code UPC and key PQR
+2023-11-27 10:26:21 | 140618209923072 | INFO     ]> Fetch data from code UPC and key STUV
+2023-11-27 10:26:25 | 140618209923072 | INFO     ]> Fetch data from code UPC and key WXYZ
+2023-11-27 10:26:26 | 140618209923072 | INFO     ]> Fetch data complete with total 1189 records
+2023-11-27 10:26:26 | 140618209923072 | INFO     ]> Start send message to broker
+2023-11-27 10:26:26 | 140618209923072 | INFO     ]> Send 1th batch to broker with total 10 records
+2023-11-27 10:26:26 | 140618209923072 | INFO     ]> Waiting for send 1th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 2th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 2th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 3th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 3th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 4th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 4th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 5th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 5th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 6th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 6th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 7th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 7th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 8th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 8th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 9th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 9th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 10th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 10th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 11th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 11th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 12th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 12th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 13th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 13th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 14th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 14th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 15th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 15th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 16th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 16th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 17th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 17th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 18th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 18th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 19th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 19th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 20th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 20th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 21th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 21th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 22th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 22th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 23th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 23th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 24th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 24th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 25th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 25th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 26th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 26th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 27th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 27th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 28th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 28th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 29th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 29th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 30th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 30th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 31th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 31th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 32th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 32th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 33th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 33th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 34th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 34th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 35th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 35th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 36th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 36th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 37th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 37th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 38th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 38th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 39th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 39th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 40th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 40th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 41th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 41th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 42th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 42th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 43th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 43th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 44th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 44th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 45th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 45th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 46th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 46th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 47th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 47th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 48th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 48th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 49th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 49th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 50th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 50th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 51th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 51th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 52th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 52th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 53th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 53th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 54th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 54th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 55th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 55th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 56th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 56th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 57th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 57th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 58th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 58th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 59th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 59th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 60th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 60th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 61th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 61th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 62th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 62th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 63th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 63th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 64th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 64th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 65th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 65th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 66th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 66th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 67th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 67th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 68th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 68th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 69th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 69th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 70th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 70th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 71th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 71th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 72th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 72th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 73th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 73th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 74th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 74th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 75th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 75th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 76th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 76th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 77th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 77th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 78th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 78th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 79th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 79th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 80th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 80th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 81th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 81th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 82th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 82th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 83th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 83th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 84th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 84th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 85th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 85th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 86th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 86th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 87th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 87th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 88th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 88th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 89th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 89th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 90th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 90th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 91th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 91th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 92th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 92th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 93th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 93th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 94th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 94th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 95th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 95th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 96th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 96th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 97th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 97th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 98th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 98th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 99th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 99th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 100th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 100th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 101th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 101th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 102th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 102th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 103th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 103th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 104th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 104th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 105th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 105th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 106th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 106th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 107th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 107th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 108th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 108th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 109th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 109th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 110th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 110th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 111th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 111th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 112th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 112th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 113th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 113th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 114th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 114th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 115th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 115th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 116th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 116th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 117th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 117th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 118th batch to broker with total 10 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 118th batch
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Send 119th batch to broker with total 9 records
+2023-11-27 10:26:27 | 140618209923072 | INFO     ]> Waiting for send 119th batch
