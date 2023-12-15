@@ -42,12 +42,11 @@ local_css("./style/style.css")
 
 # ---- HEADER SECTION ----
 with st.container():
-    st.subheader("Hi, we are Group 5 :wave:")
+    st.subheader("Hi :wave:")
     st.title("Time Series Forecasting - Stock Prediction")
     st.write(
         "This product is used for Stock Prediction."
     )
-    st.write("[See our poster >](https://drive.google.com/file/d/1rS9oSHcqHdxmL7maoLwdHriDLVE8TcyE/view?usp=sharing)")
     
 
 # ---- ABOUT PROJECT ----
@@ -62,8 +61,7 @@ with st.container():
         st.write("##")
         # st.write("Will be add soon"
         # )
-        st.write("[See our report >](https://drive.google.com/file/d/16_IbuXiqWthJYM--fNYwMRiOlqi7aI9m/view?usp=sharing)")
-        st.write("[See our slide >](https://drive.google.com/file/d/1Fr4hF8aIY1f9V0pbFHw1MD2Ahw-Jt95R/view?usp=sharing)")
+        st.write("[See our slide >](https://app.luminpdf.com/viewer/65642594ac0faad4354d0637)")
     with right_column:
         st.image('./image/3.jpg')
 
